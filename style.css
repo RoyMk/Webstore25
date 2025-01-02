@@ -31,6 +31,10 @@ ol {
 
     /* Accent Color */
     --apple-blue:      #007AFF;
+
+
+    /* Font Properties */
+    --default-price-font: 1.5rem;
 }
 
 
@@ -82,29 +86,39 @@ body {
     overflow: hidden;
 }
 
-.discount-percent{
-    position: absolute;
-    color: #66cc00;
-    font-weight: bold;
-    left: 25%;
-    font-size: 1.3rem;
-    
+.hide{
+    display: none !important; 
 }
 
 .apply-discount{
     text-decoration: line-through;
     color: var(--apple-gray);
-    font-size: 1.2rem;
+    font-size: var(--default-price-font);
 }
 
-.price{
-    display: flex;
-    position: relative;
+
+.discount-container{position: relative;}
+
+.discount-percent{
+    position: absolute;
+    color: #66cc00;
+    font-weight: bold;
+    font-size: 1.3rem;
+    left: 30%;
+    top: -25px;
+    
+    
 }
+
+.remove-discount.price{
+    text-decoration: none !important;
+    display: flex;
+    font-size: var(--default-price-font);
+    color: var(--apple-black);
+}
+
 
 .new-discounted-price{
-    position: absolute;
-    top: 30px;
     font-size: 1.5rem;
     font-weight: bold;
 }
