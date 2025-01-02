@@ -96,6 +96,7 @@ body {
     font-size: var(--default-price-font);
     font-weight: bold;
     color: var(--apple-black);
+    
 }
 
 .pricing-section{
@@ -120,9 +121,8 @@ body {
 
 .discount{
     position: absolute;
-    margin-left: 5px;
     color: green;
-    transform: translate(-70%);
+    left: 53%;
     font-weight: bold;
 }
 
