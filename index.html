@@ -2,70 +2,179 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet">
     <script src="js.js"></script>
-    <meta name="theme-color" content="#426cf5">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <meta content="royalblue" name="theme-color">
 
-    
+
 </head>
 <body>
-    <header>
-        <h2>Placeholder </h2>
+<header>
+    <h2>Placeholder </h2>
 
-    </header>
-    <main>
-
-        <section>
-           <div class="product-card">
+</header>
+<main>
+    <section>
+        <!-- Assigning noSale removed the visual calculations of the discount, although processing it won't show.
+             Assigning editable allows custom value changes
+        -->
+        <!-- Start CARD  -->
+        <div class="product-card editable ">
             <div class="product-container">
                 <div class="image-container">
-                    <img class="product-image" src="Resources/rtx4090.jpg" 
-                    alt="rx4090">
+                    <img alt="rx4090" class="product-image"
+                         src="Resources/rtx4090.jpg">
+                    <div class="add-to-cart">
+                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
+                        </svg>
+
+                    </div>
+
                 </div>
                 <div class="product-description">
                     <div class="description">
-                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X, DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
+                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
                     </div>
                     <div class="pricing-section">
                         <div class="regular-price">
-                            <p class="price apply-discount">$799</p>
-                            <p class="price-after-discount">$559.3</p>
+                            <div class="price-container">
+                                <p class="price apply-discount">0</p>
+                                <p class="discount"></p>
+                            </div>
+                            <p class="price-after-discount">0</p>
+                            <div class="special-tag-section">
+                                <p class="special-tag special-tag-freeShipping"></p>
+                                <p class="special-tag special-tag-trending"></p>
+                            </div>
                         </div>
-                        <div class="discount-section">
-                            <p class="discount">-30%</p>
-                        </div>
+                        <div class="discount-section"></div>
                     </div>
                 </div>
             </div>
-            </div>
-           </div>
-
-           <div class="product-card editable">
+        </div>
+        <!-- End CARD  -->
+        <!-- Start CARD  -->
+        <div class="product-card editable ">
             <div class="product-container">
                 <div class="image-container">
-                    <img class="product-image" src="Resources/rtx4090.jpg" 
-                    alt="rx4090">
+                    <img alt="rx4090" class="product-image"
+                         src="Resources/rtx4090.jpg">
+                    <div class="add-to-cart">
+                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
+                        </svg>
+
+                    </div>
+
                 </div>
                 <div class="product-description">
                     <div class="description">
-                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X, DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
+                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
                     </div>
                     <div class="pricing-section">
                         <div class="regular-price">
-                            <p class="price apply-discount" >$799</p>
-                            <p class="price-after-discount">$559.3</p>
+                            <div class="price-container">
+                                <p class="price apply-discount">0</p>
+                                <p class="discount"></p>
+                            </div>
+                            <p class="price-after-discount">0</p>
+                            <div class="special-tag-section">
+                                <p class="special-tag special-tag-freeShipping"></p>
+                                <p class="special-tag special-tag-bigSale"></p>
+                            </div>
                         </div>
-                        <div class="discount-section">
-                            <p class="discount">-30%</p>
-                        </div>
+                        <div class="discount-section"></div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- End CARD  -->
+        <!-- Start CARD  -->
+        <div class="product-card editable ">
+            <div class="product-container">
+                <div class="image-container">
+                    <img alt="rx4090" class="product-image"
+                         src="Resources/rtx4090.jpg">
+                    <div class="add-to-cart">
+                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
+                        </svg>
+
+                    </div>
+
+                </div>
+                <div class="product-description">
+                    <div class="description">
+                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
+                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                    </div>
+                    <div class="pricing-section">
+                        <div class="regular-price">
+                            <div class="price-container">
+                                <p class="price apply-discount">0</p>
+                                <p class="discount"></p>
+                            </div>
+                            <p class="price-after-discount">0</p>
+                            <div class="special-tag-section">
+                                <p class="special-tag special-tag-freeShipping"></p>
+                                <p class="special-tag special-tag-topSeller"></p>
+                            </div>
+                        </div>
+                        <div class="discount-section"></div>
+                    </div>
+                </div>
             </div>
-           </div>
-        </section>
-    </main>
+        </div>
+        <!-- End CARD  -->
+
+        <!-- Start CARD  -->
+        <div class="product-card editable ">
+            <div class="product-container">
+                <div class="image-container">
+                    <img alt="rx4090" class="product-image"
+                         src="Resources/rtx4090.jpg">
+                    <div class="add-to-cart">
+                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
+                        </svg>
+
+                    </div>
+
+                </div>
+                <div class="product-description">
+                    <div class="description">
+                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
+                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                    </div>
+                    <div class="pricing-section">
+                        <div class="regular-price">
+                            <div class="price-container">
+                                <p class="price apply-discount">0</p>
+                                <p class="discount"></p>
+                            </div>
+                            <p class="price-after-discount">0</p>
+                            <div class="special-tag-section">
+                                <p class="special-tag special-tag-freeShipping"></p>
+                                <p class="special-tag special-tag-topSeller"></p>
+                            </div>
+                        </div>
+                        <div class="discount-section"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End CARD  -->
+    </section>
+</main>
 </body>
 </html>

@@ -1,19 +1,20 @@
+/* Global Styles
+   ========================================================================== */
+
+/* Box Sizing Reset */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-
 }
 
 /* Reset margin and padding */
-
 * {
     margin: 0;
     padding: 0;
-
 }
 
-/* To rest ul and ol */
+/* Reset for lists */
 ul,
 ol {
     list-style: none;
@@ -21,64 +22,88 @@ ol {
     padding: 0;
 }
 
+/* Root Variables
+   ========================================================================== */
 :root {
     /* Grayscale Colors */
-    --apple-gray:      #A2AAAD;
-    --apple-black:     #000000;
-    --apple-white:     #FFFFFF;
+    --apple-gray: #A2AAAD;
+    --apple-black: #000000;
+    --apple-white: #FFFFFF;
     --apple-dark-gray: #4A4A4A;
-    --apple-light-gray:#D7D7D7;
+    --apple-light-gray: #D7D7D7;
 
     /* Accent Color */
-    --apple-blue:      #007AFF;
-
+    --apple-blue: #007AFF;
 
     /* Font Properties */
     --default-price-font: 1.5rem;
     --price-discounted-font-size: 1.2rem;
+
+    /* Special Tags  */
+    --item-trending-bg: orange;
+    --item-bigSale-bg: firebrick;
+    --item-free-shipping-bg: blue;
+    --item-topSeller-bg: gold;
+    --item-doubleTagFontSize: 0.9rem;
+    --skew-angle: skew(-15deg);
 }
 
+/* Base Styles
+   ========================================================================== */
 
-
-/* Set core root defaults */
-
+/* HTML core defaults */
 html {
     scroll-behavior: smooth;
     scrollbar-color: rgb(8, 101, 232) rgb(169, 169, 169);
     scrollbar-width: thin;
 }
 
-/* Set core body defaults */
+/* Body core defaults */
 body {
     text-rendering: optimizeSpeed;
     background-color: var(--apple-light-gray);
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Utility Classes
+   ========================================================================== */
+.hide {
+    display: none !important;
+}
 
-.product-card{
+/* Product Card Styles
+   ========================================================================== */
+.product-card {
     background-color: var(--apple-white);
     color: var(--apple-black);
-    margin-top: 10px;
-    
+    border: 0.5px solid var(--apple-light-gray);
 }
-.product-container{
+
+.product-container {
     padding: 1px;
     display: flex;
-    
 }
-.product-image{
+
+/* Product Image Styles */
+.product-image {
     max-width: 150px;
     height: auto;
 }
-.product-description{
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   margin: 10px;
 
+.image-container {
+    margin: 10px;
+    position: relative;
 }
-.description{
+
+/* Product Description Styles */
+.product-description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 10px;
+}
+
+.description {
     text-align: left;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -87,47 +112,99 @@ body {
     overflow: hidden;
 }
 
-.hide{
-    display: none !important; 
+/* Pricing Styles
+   ========================================================================== */
+.pricing-section {
+    display: flex;
 }
 
-.price{
+.price-container {
     display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.price {
     font-size: var(--default-price-font);
     font-weight: bold;
     color: var(--apple-black);
-    
 }
 
-.pricing-section{
-    display: flex;
-}
-
-.new-discounted-price{
+.new-discounted-price {
     font-size: 1.5rem;
     font-weight: bold;
 }
-.image-container{
-    margin: 10px;
+
+.price-after-discount {
+    font-size: var(--default-price-font);
+    font-weight: bold;
+    color: var(--apple-black);
 }
 
-/* Discount */
-.apply-discount{
+
+.add-to-cart-button {
+    position: relative;
+    top: 10px;
+}
+
+
+
+.add-to-cart {
+    display: flex;
+    align-items: center;
+}
+
+.add-to-cart::after {
+    content: "Add to cart";
+    align-self: center;
+    margin-top: auto;
+
+
+}
+/* Discount Styles */
+.apply-discount {
     text-decoration: line-through;
     color: var(--apple-gray);
     font-size: var(--price-discounted-font-size);
     font-weight: 100;
 }
 
-.discount{
-    position: absolute;
+.discount {
     color: green;
-    left: 53%;
     font-weight: bold;
 }
 
-.price-after-discount{
-    font-size: var(--default-price-font);
+/* Special Tag Styles
+   ========================================================================== */
+.special-tag-section {
+    display: flex;
+    gap: 10px;
 }
 
-.regular-price{position: relative;}
+.special-tag {
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    transform: var(--skew-angle);
+}
+
+.special-tag-freeShipping{
+    color: white;
+    background-color: var(--item-free-shipping-bg);
+    font-size: var(--item-doubleTagFontSize);
+}
+.special-tag-trending {
+    background-color: var(--item-trending-bg);
+    color: var(--apple-black);
+}
+
+.special-tag-bigSale {
+    background-color: var(--item-bigSale-bg);
+    color: var(--apple-white);
+}
+.special-tag-topSeller{
+    background-color: var(--item-topSeller-bg);
+    color: var(--apple-black);
+    font-size: var(--item-doubleTagFontSize);
+}
