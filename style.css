@@ -138,7 +138,7 @@ body {
 
 /* Product Image Styles */
 .product-image {
-    max-width : 150px;
+    max-width : 180px;
     height    : auto;
 }
 
@@ -234,9 +234,11 @@ body {
 }
 
 .special-tag {
+    font-size: 0.8rem;
     margin-top  : 5px;
     font-weight : bold;
     text-align  : center;
+    max-height: fit-content;
     padding     : 3px;
     transform   : var(--skew-angle);
 }
@@ -244,7 +246,6 @@ body {
 .special-tag-freeShipping {
     color            : white;
     background-color : var(--item-free-shipping-bg);
-    font-size        : var(--item-doubleTagFontSize);
 }
 
 .special-tag-trending {
@@ -260,12 +261,11 @@ body {
 .special-tag-topSeller {
     background-color : var(--item-topSeller-bg);
     color            : var(--apple-black);
-    font-size        : var(--item-doubleTagFontSize);
 }
 
 header {
     display     : flex;
-    align-items : center;
+    align-items : flex-start;
 }
 
 .header-links > ul {
