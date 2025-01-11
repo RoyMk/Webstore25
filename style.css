@@ -138,7 +138,7 @@ body {
 
 /* Product Image Styles */
 .product-image {
-    max-width : 150px;
+    max-width : 180px;
     height    : auto;
 }
 
@@ -238,6 +238,7 @@ body {
     margin-top  : 5px;
     font-weight : bold;
     text-align  : center;
+    max-height: fit-content;
     padding     : 3px;
     transform   : var(--skew-angle);
 }
@@ -264,7 +265,7 @@ body {
 
 header {
     display     : flex;
-    align-items : center;
+    align-items : flex-start;
 }
 
 .header-links > ul {
