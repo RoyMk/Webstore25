@@ -170,7 +170,7 @@ body {
     display : flex;
 }
 
-.price-container {
+.price-and-discount-container {
     display     : flex;
     align-items : center;
     gap         : 7px;
@@ -187,7 +187,7 @@ body {
     font-weight : bold;
 }
 
-.price-after-discount {
+.discounted-price {
     font-size   : var(--default-price-font);
     font-weight : bold;
     color       : var(--apple-black);
@@ -214,7 +214,7 @@ body {
 }
 
 /* Discount Styles */
-.apply-discount {
+.price-discounted {
     text-decoration : line-through;
     color           : var(--apple-gray);
     font-size       : var(--price-discounted-font-size);
@@ -234,6 +234,7 @@ body {
 }
 
 .special-tag {
+    font-size: 0.8rem;
     margin-top  : 5px;
     font-weight : bold;
     text-align  : center;
@@ -244,7 +245,6 @@ body {
 .special-tag-freeShipping {
     color            : white;
     background-color : var(--item-free-shipping-bg);
-    font-size        : var(--item-doubleTagFontSize);
 }
 
 .special-tag-trending {
@@ -260,7 +260,6 @@ body {
 .special-tag-topSeller {
     background-color : var(--item-topSeller-bg);
     color            : var(--apple-black);
-    font-size        : var(--item-doubleTagFontSize);
 }
 
 header {

@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+document.addEventListener("DOMContentLoaded", () => 
+{
+    let noSale = document.querySelectorAll(".noSale");
+    let saleItem = document.querySelectorAll(".editable");
     /**
      * Formats a number as currency.
      * @param {string} amount - The amount to format.
@@ -19,69 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return formatter.format(amount);
     }
 
-    /**
-     * Hides or shows discount-related elements.
-     * @param {boolean} isTrue - Whether to hide the discounts.
-     */
-    function hideAllDiscounts(isTrue) {
-        noSale.forEach(item => {
-            let normal_price = item.querySelectorAll(".price");
-            let price_after_discount = item.querySelectorAll(".price-after-discount")
-            let discount_percent = item.querySelectorAll(".discount")
-
-            if (isTrue) {
-                price_after_discount.forEach(item => item.classList.toggle("hide"));
-                discount_percent.forEach(item => item.classList.add("hide"));
-                normal_price.forEach(item => item.classList.toggle("apply-discount"));
-            }
-        })
-    }
-
-    /**
-     * Edits the price of items and applies discounts.
-     * @param {NodeList} item - The list of items to edit.
-     * @param {string} oldPrice - The original price.
-     * @param {string} newPrice - The new discounted price.
-     * @param {boolean} applyChanges - Whether to apply the changes.
-     */
-    function editItemPrice(item, oldPrice, newPrice, applyChanges) {
-        item.forEach(item => {
-            const elements = {
-                defaultPrice: item.querySelector(".price"),
-                discountedPrice: item.querySelector(".price-after-discount"),
-                discountPercent: item.querySelector(".discount"),
-                freeShippingTag: item.querySelector(".special-tag-freeShipping"),
-                bigSaleTag: item.querySelector(".special-tag-bigSale"),
-                trendingTag: item.querySelector(".special-tag-trending"),
-                topSellerTag: item.querySelector(".special-tag-topSeller"),
-                doubleTag: item.querySelector(".special-tag-freeShipping.special-tag-topSeller"),
-                
-            };
-           
-            const tagMappings = {
-                freeShippingTag: 'FREE SHIPPING',
-                trendingTag: 'TRENDING',
-                bigSaleTag: 'SALE',
-                topSellerTag: "TOP SELLER"
-                
-               
-            };
-            
-            Object.entries(tagMappings).forEach(([key, value]) => {
-                if(elements[key]) {
-                    elements[key].textContent = value;
-                }
-            })
-            
-            if (applyChanges) {
-                let final = calculateNewPrice(oldPrice, newPrice);
-                elements.defaultPrice.textContent = formatCurrency(oldPrice)
-                elements.discountedPrice.textContent = formatCurrency(newPrice);
-                elements.discountPercent.textContent = final.toString() + "%"
-            }
-        });
-    }
-
+    
     /**
      * Calculates the percentage discount between two prices.
      * @param {string|number} originalPrice - The original price.
@@ -94,9 +34,45 @@ document.addEventListener("DOMContentLoaded", () => {
         return total.toFixed(2);
     }
 
-    let noSale = document.querySelectorAll(".noSale");
-    let saleItem = document.querySelectorAll(".editable");
+    function calculateDiscountedPrice(originalPrice, discountPercentage) {
+        // Calculate the discount amount
+        const discountAmount = (discountPercentage / 100) * originalPrice;
 
-    hideAllDiscounts(true)
-    editItemPrice(saleItem, "2340", "1259", true);
+        // Calculate the price after discount
+        return originalPrice - discountAmount;
+    }
+
+    function removeCurrencyFormatting(str) {
+        return str.replace(/[$,]/g, '');
+    }
+
+    
+    
+    let cardA = document.getElementById("cardA");
+
+
+    /**
+        Gets the specified element and its relevant children, it then calculates the discount off the original
+     price and updates the ui with that value.
+     */
+    function elementGrabber(element) {
+        const [price,discount,discountedPrice] = element.querySelectorAll(".price, .discount, .discounted-price");
+        if(discount.textContent){
+            discountedPrice.textContent = formatCurrency(calculateDiscountedPrice(removeCurrencyFormatting(price.textContent),
+                discount.textContent.replace("%","")));
+        }
+     
+        
+    }
+    elementGrabber(document.getElementById("cardA"));
+    elementGrabber(document.getElementById("cardB"));
+
+    
+    
+    
+    
+    
+  
+
+
 })
