@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => 
-{
-    let noSale = document.querySelectorAll(".noSale");
-    let saleItem = document.querySelectorAll(".editable");
+document.addEventListener("DOMContentLoaded", () => {
     /**
      * Formats a number as currency.
      * @param {string} amount - The amount to format.
@@ -17,11 +14,9 @@ document.addEventListener("DOMContentLoaded", () =>
             minimumFractionDigits: decimalPlaces,
             maximumFractionDigits: decimalPlaces
         });
-
         return formatter.format(amount);
     }
 
-    
     /**
      * Calculates the percentage discount between two prices.
      * @param {string|number} originalPrice - The original price.
@@ -34,45 +29,41 @@ document.addEventListener("DOMContentLoaded", () =>
         return total.toFixed(2);
     }
 
+    /**
+     * Calculates the discounted price based on original price and discount percentage.
+     * @param {string} originalPrice - The original price.
+     * @param {string} discountPercentage - The discount percentage.
+     * @returns {number} The discounted price.
+     */
     function calculateDiscountedPrice(originalPrice, discountPercentage) {
-        // Calculate the discount amount
         const discountAmount = (discountPercentage / 100) * originalPrice;
-
-        // Calculate the price after discount
         return originalPrice - discountAmount;
     }
 
+    /**
+     * Removes currency formatting from a string.
+     * @param {string} str - The string to remove formatting from.
+     * @returns {string} The string without currency formatting.
+     */
     function removeCurrencyFormatting(str) {
         return str.replace(/[$,]/g, '');
     }
 
-    
-    
-    let cardA = document.getElementById("cardA");
-
-
     /**
-        Gets the specified element and its relevant children, it then calculates the discount off the original
-     price and updates the ui with that value.
+     * Updates the UI with calculated discount for a given element.
+     * @param {HTMLElement} element - The element to update.
      */
     function elementGrabber(element) {
-        const [price,discount,discountedPrice] = element.querySelectorAll(".price, .discount, .discounted-price");
-        if(discount.textContent){
-            discountedPrice.textContent = formatCurrency(calculateDiscountedPrice(removeCurrencyFormatting(price.textContent),
-                discount.textContent.replace("%","")));
+        const [price, discount, discountedPrice] = element.querySelectorAll(".price, .discount, .discounted-price");
+        if (discount.textContent) {
+            discountedPrice.textContent = formatCurrency(calculateDiscountedPrice(
+                removeCurrencyFormatting(price.textContent),
+                discount.textContent.replace("%", "")
+            ));
         }
-     
-        
     }
+
+    // Apply discounts to specific cards
     elementGrabber(document.getElementById("cardA"));
     elementGrabber(document.getElementById("cardB"));
-
-    
-    
-    
-    
-    
-  
-
-
-})
+});

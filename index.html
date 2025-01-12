@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="royalblue">
     <title>Document</title>
-    <link href="style.css" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
     <script src="js.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-    <meta content="royalblue" name="theme-color">
-
-
 </head>
 <body>
 <header>
@@ -18,39 +25,28 @@
     </div>
     <div class="header-links">
         <ul>
-            <li>
-                <a href="index.html">Products</a>
-               </li>
+            <li><a href="index.html">Products</a></li>
             <li>Orders</li>
         </ul>
-
     </div>
-
 </header>
+
 <main>
     <section>
-        <!-- Assigning noSale removed the visual calculations of the discount, although processing it won't show.
-             Assigning editable allows custom value changes
-        -->
-        <!-- Start CARD  -->
+        <!-- Product Card A -->
         <div class="product-card" id="cardA">
             <div class="product-container">
                 <div class="image-container">
-                    <img alt="rx4090" class="product-image"
-                         src="Resources/rtx5070-removebg-preview.png">
+                    <img class="product-image" src="Resources/rtx5070-removebg-preview.png" alt="rx4090">
                     <div class="add-to-cart">
-                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
-                             xmlns="http://www.w3.org/2000/svg">
+                        <svg class="add-to-cart-button" fill="green" height="40" width="40" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                             <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
                         </svg>
-
                     </div>
-
                 </div>
                 <div class="product-description">
                     <div class="description">
-                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
-                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                        <p>NVIDIA - GeForce RTX 5070 12GB GDDR7 Graphics Card - Graphite Grey</p>
                     </div>
                     <div class="pricing-section">
                         <div class="regular-price-container">
@@ -69,26 +65,21 @@
                 </div>
             </div>
         </div>
-        <!-- End CARD  -->
-        <!-- Start CARD  -->
+
+        <!-- Product Card B -->
         <div class="product-card" id="cardB">
             <div class="product-container">
                 <div class="image-container">
-                    <img alt="rx4090" class="product-image"
-                         src="Resources/rtx4090.jpg">
+                    <img class="product-image" src="Resources/rtx4090.jpg" alt="rx4090">
                     <div class="add-to-cart">
-                        <svg class="add-to-cart-button" fill="green" height="40" viewBox="0 0 256 256" width="40"
-                             xmlns="http://www.w3.org/2000/svg">
+                        <svg class="add-to-cart-button" fill="green" height="40" width="40" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                             <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
                         </svg>
-
                     </div>
-
                 </div>
                 <div class="product-description">
                     <div class="description">
-                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X,
-                            DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
+                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X, DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
                     </div>
                     <div class="pricing-section">
                         <div class="regular-price-container">
@@ -107,7 +98,6 @@
                 </div>
             </div>
         </div>
-        <!-- End CARD  -->
     </section>
 </main>
 </body>
