@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="royalblue">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="#343D46" name="theme-color">
     <title>Document</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
 
     <!-- Scripts -->
     <script src="js.js"></script>
@@ -21,7 +22,7 @@
 <body>
 <header>
     <div class="company-logo">
-        <img src="Resources/circuitforce-high-resolution-logo-grayscale-transparent.png" alt="company-logo">
+        <img alt="company-logo" src="Resources/circuitforce-high-resolution-logo-grayscale-transparent.png">
     </div>
     <div class="header-links">
         <ul>
@@ -29,19 +30,33 @@
             <li>Orders</li>
         </ul>
     </div>
+
+    <div class="shopping-cart">
+        <div class="cart-badge">
+            <p class="badge-counter"></p>
+        </div>
+        <svg fill="#000000"
+             height="32" viewBox="0 0 256 256" width="32"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M104,216a16,16,0,1,1-16-16A16,16,0,0,1,104,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,192,200ZM239.71,74.14l-25.64,92.28A24.06,24.06,0,0,1,191,184H92.16A24.06,24.06,0,0,1,69,166.42L33.92,40H16a8,8,0,0,1,0-16H40a8,8,0,0,1,7.71,5.86L57.19,64H232a8,8,0,0,1,7.71,10.14ZM221.47,80H61.64l22.81,82.14A8,8,0,0,0,92.16,168H191a8,8,0,0,0,7.71-5.86Z"></path>
+        </svg>
+    </div>
 </header>
 
 <main>
     <section>
-        <!-- Product Card A -->
+        <!-- Product Card-->
         <div class="product-card" id="cardA">
             <div class="product-container">
                 <div class="image-container">
-                    <img class="product-image" src="Resources/rtx5070-removebg-preview.png" alt="rx4090">
+                    <img alt="rx4090" class="product-image" src="Resources/rtx5070-removebg-preview.png">
                     <div class="add-to-cart">
-                        <svg class="add-to-cart-button" fill="green" height="40" width="40" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
-                        </svg>
+                        <button class="add-to-cart-button" id="addToCartButton">
+                            <svg fill="green" height="40" viewBox="0 0 256 256" width="40"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <div class="product-description">
@@ -51,7 +66,7 @@
                     <div class="pricing-section">
                         <div class="regular-price-container">
                             <div class="price-and-discount-container">
-                                <p class="price">$350</p>
+                                <p class="price">$254</p>
                                 <p class="discount"></p>
                             </div>
                             <p class="discounted-price"></p>
@@ -66,38 +81,9 @@
             </div>
         </div>
 
-        <!-- Product Card B -->
-        <div class="product-card" id="cardB">
-            <div class="product-container">
-                <div class="image-container">
-                    <img class="product-image" src="Resources/rtx4090.jpg" alt="rx4090">
-                    <div class="add-to-cart">
-                        <svg class="add-to-cart-button" fill="green" height="40" width="40" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="product-description">
-                    <div class="description">
-                        <p>ASUS ROG Strix GeForce RTX 4070 Super OC Edition Gaming Graphics Card (PCIe 4.0, 12GB GDDR6X, DLSS 3, HDMI 2.1a, DisplayPort 1.4a, Massive Vented Backplate, Power Sensing, Aura Sync)</p>
-                    </div>
-                    <div class="pricing-section">
-                        <div class="regular-price-container">
-                            <div class="price-and-discount-container">
-                                <p class="price">$500</p>
-                                <p class="discount">50%</p>
-                            </div>
-                            <p class="discounted-price"></p>
-                            <div class="special-tag-section">
-                                <p class="special-tag special-tag-freeShipping">FREE SHIPPING</p>
-                                <p class="special-tag special-tag-trending">TRENDING</p>
-                            </div>
-                        </div>
-                        <div class="discount-section"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
     </section>
 </main>
 </body>

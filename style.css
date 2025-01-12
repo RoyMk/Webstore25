@@ -8,6 +8,9 @@
     box-sizing : border-box;
 }
 
+
+
+
 /* Remove default margin and padding */
 body,
 h1, h2, h3, h4, h5, h6,
@@ -21,15 +24,16 @@ dd {
 }
 
 /* Set core body defaults */
-a{
-    text-decoration: none;
+a {
+    text-decoration : none;
 
 }
 
-a:visited{
-    color: var(--apple-black);
-    text-decoration: none;
+a:visited {
+    color           : var(--apple-black);
+    text-decoration : none;
 }
+
 /* Remove list styles on ul, ol elements */
 ul,
 ol {
@@ -75,6 +79,7 @@ select {
     --apple-white                : #FFFFFF;
     --apple-dark-gray            : #4A4A4A;
     --apple-light-gray           : #D7D7D7;
+    --theme-color                : orange !important;
 
     /* Accent Color */
     --apple-blue                 : #007AFF;
@@ -93,6 +98,9 @@ select {
     --item-topSeller-bg          : gold;
     --item-doubleTagFontSize     : 0.9rem;
     --skew-angle                 : skew(-15deg);
+
+    /* Button */
+    --button-active              : blue;
 }
 
 /* Base Styles
@@ -134,17 +142,20 @@ body {
 .product-container {
     padding : 1px;
     display : flex;
+
 }
 
 /* Product Image Styles */
 .product-image {
-    max-width : 180px;
+    min-width : 130px;
+    max-width : 160px;
     height    : auto;
 }
 
 .image-container {
     margin   : 10px;
     position : relative;
+
 }
 
 /* Product Description Styles */
@@ -152,22 +163,27 @@ body {
     display        : flex;
     flex-direction : column;
     gap            : 20px;
-    margin         : 10px;
+    margin-left    : 5%;
+
+
 }
 
 .description {
     text-align         : left;
     display            : -webkit-box;
     -webkit-box-orient : vertical;
-    -webkit-line-clamp : 4;
+    -webkit-line-clamp : 3;
     line-clamp         : 3;
     overflow           : hidden;
+    margin-top         : auto;
 }
 
 /* Pricing Styles
    ========================================================================== */
 .pricing-section {
-    display : flex;
+    display       : flex;
+    margin-top    : auto;
+    margin-bottom : 10%;
 }
 
 .price-and-discount-container {
@@ -193,23 +209,40 @@ body {
     color       : var(--apple-black);
 }
 
-
-.add-to-cart-button {
-    position : relative;
-    top      : 10px;
-}
-
-
 .add-to-cart {
     display     : flex;
     align-items : center;
+    min-width   : 130px;
 }
 
 .add-to-cart::after {
-    content    : "Add to cart";
-    align-self : center;
-    margin-top : auto;
+    display       : flex;
+    content       : "Add to cart";
+    margin-top    : auto;
+    margin-bottom : 3%
+}
 
+.add-to-cart-button {
+    align-self       : center;
+    position         : relative;
+    top              : 10px;
+    background-color : transparent;
+    border           : none;
+    padding          : 0;
+    margin           : 0;
+    /*-webkit-tap-highlight-color: transparent;*/
+    /*touch-action: manipulation;*/
+
+}
+
+.add-to-cart-button svg {
+    fill: green;
+    transition: fill 0.3s ease;
+
+}
+
+.add-to-cart-button.active svg {
+    fill: var(--button-active);
 
 }
 
@@ -218,7 +251,7 @@ body {
     text-decoration : line-through;
     color           : var(--apple-gray);
     font-size       : var(--price-discounted-font-size);
-    font-weight     : 100;
+
 }
 
 .discount {
@@ -234,13 +267,13 @@ body {
 }
 
 .special-tag {
-    font-size: 0.8rem;
+    font-size   : 0.8rem;
     margin-top  : 5px;
     font-weight : bold;
     text-align  : center;
-    max-height: fit-content;
+    max-height  : fit-content;
     padding     : 3px;
-    transform   : var(--skew-angle);
+    transform   : skew(-15deg);
 }
 
 .special-tag-freeShipping {
@@ -266,6 +299,7 @@ body {
 header {
     display     : flex;
     align-items : flex-start;
+    margin-right: 5%;
 }
 
 .header-links > ul {
@@ -292,8 +326,8 @@ header {
 
 }
 
-
 .cart-badge {
+    display : none;
     left             : 20px;
     position         : absolute;
     font-size        : 0.8rem;
@@ -306,6 +340,11 @@ header {
     text-align: center;
 
 }
+
+.show-shopping-cart-badge{
+    display : inline-block;
+}
+
 .badge-counter {
     padding-left  : 5%;
     padding-right : 5%;
