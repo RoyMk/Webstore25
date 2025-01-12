@@ -284,3 +284,30 @@ header {
 .company-logo img {
     max-width : 70px;
 }
+
+.shopping-cart {
+    position : relative;
+    align-self: center;
+    margin-left: auto;
+
+}
+
+
+.cart-badge {
+    left             : 20px;
+    position         : absolute;
+    font-size        : 0.8rem;
+    font-weight: bold;
+    background-color : orange;
+    border           : 1px solid orange;
+    border-radius    : 50%;
+    width            : 75%;
+    height           : auto;
+    text-align: center;
+
+}
+.badge-counter {
+    padding-left  : 5%;
+    padding-right : 5%;
+
+}
