@@ -103,7 +103,7 @@ header {
     --skew-angle                 : skew(-15deg);
 
     /* Button */
-    --button-add-fill-onTouch    : blue;
+    --button-add-fill-onTouch    : yellow;
     --button-remove-fill-onTouch : black;
 }
 
@@ -257,23 +257,13 @@ body {
 
 }
 
-.add-to-cart-button,
-.remove-from-cart-button {
-    align-self       : center;
-    position         : relative;
-    top              : 10px;
-    background-color : transparent;
-    border           : none;
-    padding          : 0;
-    margin           : 0;
-}
 
 .add-to-cart-button svg {
     fill       : green;
     transition : fill 0.3s ease;
 }
 
-.add-to-cart-button.active svg {
+.add-to-cart-button:active svg {
     fill : var(--button-add-fill-onTouch);
 }
 
@@ -282,9 +272,7 @@ body {
     transition : fill 0.3s ease;
 }
 
-.remove-from-cart-button.active svg {
-    fill : var(--button-remove-fill-onTouch);
-}
+
 
 
 /* Discount Styles */
