@@ -9,8 +9,6 @@
 }
 
 
-
-
 /* Remove default margin and padding */
 body,
 h1, h2, h3, h4, h5, h6,
@@ -52,6 +50,11 @@ button,
 textarea,
 select {
     font : inherit;
+}
+header {
+    display      : flex;
+    align-items  : flex-start;
+    margin-right : 5%;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -100,7 +103,8 @@ select {
     --skew-angle                 : skew(-15deg);
 
     /* Button */
-    --button-active              : blue;
+    --button-add-fill-onTouch    : blue;
+    --button-remove-fill-onTouch : black;
 }
 
 /* Base Styles
@@ -140,8 +144,9 @@ body {
 }
 
 .product-container {
-    padding : 1px;
-    display : flex;
+    position : relative;
+    padding  : 1px;
+    display  : flex;
 
 }
 
@@ -187,15 +192,18 @@ body {
 }
 
 .price-and-discount-container {
-    display     : flex;
-    align-items : center;
-    gap         : 7px;
+    display       : flex;
+    align-items   : center;
+    gap           : 7px;
+    margin-bottom : 25%;
 }
 
 .price {
     font-size   : var(--default-price-font);
     font-weight : bold;
     color       : var(--apple-black);
+
+
 }
 
 .new-discounted-price {
@@ -209,7 +217,9 @@ body {
     color       : var(--apple-black);
 }
 
-.add-to-cart {
+/* Add and Remove from cart button styles */
+.add-to-cart,
+.remove-from-cart {
     display     : flex;
     align-items : center;
     min-width   : 130px;
@@ -222,7 +232,21 @@ body {
     margin-bottom : 3%
 }
 
-.add-to-cart-button {
+.remove-from-cart {
+    min-width : 20px;
+    fill      : red;
+}
+
+.remove-from-cart::after {
+    content       : "Remove from cart";
+    display       : flex;
+    font-size     : 0.8rem;
+    margin-top    : auto;
+    margin-bottom : 5%
+}
+
+
+.add-to-cart-button, .remove-from-cart-button {
     align-self       : center;
     position         : relative;
     top              : 10px;
@@ -230,21 +254,38 @@ body {
     border           : none;
     padding          : 0;
     margin           : 0;
-    /*-webkit-tap-highlight-color: transparent;*/
-    /*touch-action: manipulation;*/
 
+}
+
+.add-to-cart-button,
+.remove-from-cart-button {
+    align-self       : center;
+    position         : relative;
+    top              : 10px;
+    background-color : transparent;
+    border           : none;
+    padding          : 0;
+    margin           : 0;
 }
 
 .add-to-cart-button svg {
-    fill: green;
-    transition: fill 0.3s ease;
-
+    fill       : green;
+    transition : fill 0.3s ease;
 }
 
 .add-to-cart-button.active svg {
-    fill: var(--button-active);
-
+    fill : var(--button-add-fill-onTouch);
 }
+
+.remove-from-cart-button svg {
+    fill       : red;
+    transition : fill 0.3s ease;
+}
+
+.remove-from-cart-button.active svg {
+    fill : var(--button-remove-fill-onTouch);
+}
+
 
 /* Discount Styles */
 .price-discounted {
@@ -296,11 +337,7 @@ body {
     color            : var(--apple-black);
 }
 
-header {
-    display     : flex;
-    align-items : flex-start;
-    margin-right: 5%;
-}
+
 
 .header-links > ul {
 
@@ -320,33 +357,48 @@ header {
 }
 
 .shopping-cart {
-    position : relative;
-    align-self: center;
-    margin-left: auto;
+    position    : relative;
+    align-self  : center;
+    margin-left : auto;
 
 }
 
 .cart-badge {
-    display : none;
+    display          : none;
     left             : 20px;
     position         : absolute;
     font-size        : 0.8rem;
-    font-weight: bold;
+    font-weight      : bold;
     background-color : orange;
     border           : 1px solid orange;
     border-radius    : 50%;
     width            : 75%;
     height           : auto;
-    text-align: center;
+    text-align       : center;
 
 }
 
-.show-shopping-cart-badge{
+.show-shopping-cart-badge {
     display : inline-block;
 }
 
 .badge-counter {
     padding-left  : 5%;
     padding-right : 5%;
+
+}
+
+.item-qty {
+    bottom     : 8%;
+    right      : 3%;
+    position   : absolute;
+    text-align : right;
+}
+
+.item-qty label {
+    -webkit-tap-highlight-color : transparent;
+}
+
+.qty-input {
 
 }
