@@ -272,6 +272,11 @@ body {
     transition : fill 0.3s ease;
 }
 
+.remove-from-cart-button:active svg {
+    fill : var(--button-remove-fill-onTouch);
+}
+
+
 
 
 

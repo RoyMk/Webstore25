@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
-    let currentPrice = document.querySelector('.price');
-    let currentPriceCopy = currentPrice.textContent;
-    // addToCartButton - buttonHomepage
-    // shopping-cart - cart parent
-    // cart-badge  - amount of items in cart
     class CartManager {
+
+        #cartBadge
+        #cartBadgeCounter
         constructor(cart) {
             this.cart = cart;
             this.#cartBadge = this.cart.querySelector(".cart-badge")
@@ -16,46 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        getCart() {
-            return this.cart.querySelector(".shopping-cart")
-
-        }
-
-        addToCart() {
-
-        }
-
     }
 
-
-    class Calculator {
-        constructor() {
-        }
-    }
 
     class UIManager {
-
-        #addItemToCartButton;
-
-        constructor(productCard) {
-            this.productCard = productCard;
-            this.#getAddToCartButton()
-
-        }
-
-
-
-        getCardPrice() {
-            const getProductPrice = this.productCard.querySelector(".price").textContent;
-        }
-        #getAddToCartButton() {
-            this.#addItemToCartButton =  this.productCard.querySelector(".add-to-cart-button")
-            this.#addItemToCartButton.addEventListener("click", () => {
-                alert("Added to cart");
-            })
-        }
-
-
 
     }
 
@@ -78,13 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    let uiManager = new UIManager(document.getElementById('cardA'));
-
-
-
-    let cartManager = new CartManager(document.querySelector('.shopping-cart'));
-
-
+    let cardA = document.querySelector('#cardA');
+    new CartManager(document.querySelector('.shopping-cart'), cardA);
 
 });
 
