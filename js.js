@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     class CartManager {
         constructor(cart) {
             this.cart = cart;
-
+            this.#cartBadge = this.cart.querySelector(".cart-badge")
+            this.#cartBadgeCounter = this.cart.querySelector(".badge-counter")
+            console.log(`Cart Badge: ${this.#cartBadge.outerHTML}`)
+            console.log(`cartBadgeCounter: ${this.#cartBadgeCounter.outerHTML}`)
 
         }
 
