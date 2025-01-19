@@ -2,22 +2,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     class CartManager {
 
-        #cartBadge
-        #cartBadgeCounter
-        constructor(cart) {
-            this.cart = cart;
-            this.#cartBadge = this.cart.querySelector(".cart-badge")
-            this.#cartBadgeCounter = this.cart.querySelector(".badge-counter")
-            console.log(`Cart Badge: ${this.#cartBadge.outerHTML}`)
-            console.log(`cartBadgeCounter: ${this.#cartBadgeCounter.outerHTML}`)
-
+        constructor() {
         }
+
+        counter = 0
+
+        addToCart(badge, badgeCounter) {
+            this.counter++
+            badge.classList.add('show-shopping-cart-badge');
+            badgeCounter.textContent = this.counter.toString();
+        }
+
 
     }
 
+    // Handles UI interaction
+    class UiManager {
+        #cartBadge
+        #cartBadgeCounter
+        #addToCartButton;
 
-    class UIManager {
+        constructor({cart, cartManager, card}) {
+            this.cart = cart;
+            this.cartManager = cartManager;
+            this.card = card;
 
+            this.#cartBadge = this.cart.querySelector(".cart-badge")
+            this.#cartBadgeCounter = this.cart.querySelector(".badge-counter")
+            this.#addToCartButton = this.card.querySelector("#addToCartButton")
+            this.#bindEvents()
+        }
+
+        #bindEvents() {
+            this.#addToCartButton.addEventListener("click", () => {
+                this.cartManager.addToCart(this.#cartBadge, this.#cartBadgeCounter)
+            })
+        }
     }
 
     class Formatter {
@@ -39,8 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    let cardA = document.querySelector('#cardA');
-    new CartManager(document.querySelector('.shopping-cart'), cardA);
+    let cardA = document.querySelector('#CardA');
+    new UiManager({
+        cart: document.querySelector('.shopping-cart'),
+        cartManager: new CartManager(),
+        card: document.querySelector('#cardA'),
+    });
 
 });
 
