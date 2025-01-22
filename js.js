@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         static BADGE_CLASS = "show-shopping-cart-badge";
 
         static getQuantity() {
-            return localStorage.getItem(this.KEY);
+            return parseInt(localStorage.getItem(this.KEY) || "0");
         }
 
         static setQuantity(value) {
@@ -12,34 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    class CartUI {
-        constructor() {
-            this.badge = document.querySelector(".cart-badge");
-            this.counter = document.querySelector(".badge-counter");
-        }
-
-        updateDisplay() {
-            if (!this.badge || !this.counter) {
-                console.warn("Cart UI elements not found");
-                return;
-            }
-
-            const quantity = CartStorage.getQuantity();
-
-            if (quantity !== null) {
-                this.badge.classList.add(CartStorage.BADGE_CLASS);
-                this.counter.textContent = quantity;
-            } else {
-                this.badge.classList.remove(CartStorage.BADGE_CLASS);
-                this.counter.textContent = "";
-            }
-        }
-    }
-
     class CartManager {
         constructor(uiManager) {
             this.uiManager = uiManager;
-            this.quantity = parseInt(CartStorage.getQuantity() || "0");
+            this.quantity = CartStorage.getQuantity();
+            this.updateUI();
         }
 
         addItem() {
@@ -48,29 +25,60 @@ document.addEventListener("DOMContentLoaded", () => {
             this.updateUI();
         }
 
+        removeItem() {
+            if (this.quantity > 0) {
+                this.quantity--;
+                CartStorage.setQuantity(this.quantity);
+                console.log("Item removed. New quantity:", this.quantity);
+                this.updateUI();
+            }
+        }
+
         updateUI() {
             const badge = this.uiManager.getCartBadge();
             const counter = this.uiManager.getCartCounter();
+            let cartPageCounterQty = this.uiManager.getCartPageCounter();
+
+            if(cartPageCounterQty) {
+                cartPageCounterQty.textContent = `(${this.quantity})`;
+            }
 
             if (badge && counter) {
-                badge.classList.add(CartStorage.BADGE_CLASS);
-                counter.textContent = this.quantity.toString();
+
+                if (this.quantity > 0) {
+                    badge.classList.add(CartStorage.BADGE_CLASS);
+                    counter.textContent = this.quantity.toString();
+
+                } else {
+                    badge.classList.remove(CartStorage.BADGE_CLASS);
+                    counter.textContent = "";
+                }
+
             }
+
+            console.log("UI updated. Current quantity:", this.quantity);
+
         }
+
     }
 
     class UIManager {
         #cartBadge;
         #cartCounter;
         #addToCartButton;
+        #removeFromCartButton;
+        #cartPageCounter
 
-        constructor({cart, card}) {
+        constructor({cart, card, cartPage}) {
             this.cart = cart;
             this.card = card;
+            this.cartPage = cartPage;
+            this.#cartBadge = this.cart?.querySelector(".cart-badge");
+            this.#cartCounter = this.cart?.querySelector(".badge-counter");
+            this.#addToCartButton = this.card?.querySelector("#addToCartButton");
+            this.#removeFromCartButton = this.cartPage?.querySelector("#removeItemFromCartButton");
+            this.#cartPageCounter = document.querySelector(".cart-page-counter")
 
-            this.#cartBadge = this.cart.querySelector(".cart-badge");
-            this.#cartCounter = this.cart.querySelector(".badge-counter");
-            this.#addToCartButton = this.card.querySelector("#addToCartButton");
         }
 
         initializeCartManager(cartManager) {
@@ -79,9 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         #bindEvents() {
-            this.#addToCartButton.addEventListener("click", () => {
-                this.cartManager.addItem();
-            });
+            if (this.#addToCartButton) {
+                this.#addToCartButton.addEventListener("click", () => {
+                    this.cartManager.addItem();
+                });
+            }
+
+            if (this.#removeFromCartButton) {
+                this.#removeFromCartButton.addEventListener("click", () => {
+                    this.cartManager.removeItem();
+                });
+            }
         }
 
         getCartBadge() {
@@ -91,33 +107,38 @@ document.addEventListener("DOMContentLoaded", () => {
         getCartCounter() {
             return this.#cartCounter;
         }
-    }
-
-    class CurrencyFormatter {
-        static format(amount, currencyCode = 'USD', locale = 'en-US', decimalPlaces = 2) {
-            const formatter = new Intl.NumberFormat(locale, {
-                style: 'currency',
-                currency: currencyCode,
-                minimumFractionDigits: decimalPlaces,
-                maximumFractionDigits: decimalPlaces
-            });
-            return formatter.format(amount);
-        }
-
-        static unformat(str) {
-            return str.replace(/[$,]/g, '');
+        getCartPageCounter(){
+            return this.#cartPageCounter;
         }
     }
+
+
 
     // Initialization
-    const cartUI = new CartUI();
-    cartUI.updateDisplay();
-
     const uiManager = new UIManager({
         cart: document.querySelector('.shopping-cart'),
         card: document.querySelector('#cardA'),
+        cartPage: document.querySelector('#cardACartPage'),
     });
 
     const cartManager = new CartManager(uiManager);
     uiManager.initializeCartManager(cartManager);
 });
+
+
+
+// class CurrencyFormatter {
+//     static format(amount, currencyCode = 'USD', locale = 'en-US', decimalPlaces = 2) {
+//         const formatter = new Intl.NumberFormat(locale, {
+//             style: 'currency',
+//             currency: currencyCode,
+//             minimumFractionDigits: decimalPlaces,
+//             maximumFractionDigits: decimalPlaces
+//         });
+//         return formatter.format(amount);
+//     }
+//
+//     static unformat(str) {
+//         return str.replace(/[$,]/g, '');
+//     }
+// }

@@ -16,7 +16,6 @@
           rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="js.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body>
@@ -34,15 +33,15 @@
 <main>
     <section>
         <div class="section-header">
-            <h1>Cart <span class="cart-counter"></span></h1>
+            <h1 class="cartPageTitle">Cart <span class="cart-page-counter">23</span></h1>
         </div>
         <!-- Product Card-->
-        <div class="product-card" id="cardA">
+        <div class="product-card" id="cardACartPage">
             <div class="product-container">
                 <div class="image-container">
                     <img alt="rx4090" class="product-image" src="Resources/rtx5070-removebg-preview.png">
                     <div class="remove-from-cart">
-                        <button class="remove-from-cart-button" id="test">
+                        <button class="remove-from-cart-button" id="removeItemFromCartButton">
                             <svg fill="#000000" height="40" viewBox="0 0 256 256" width="40"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM168,136H88a8,8,0,0,1,0-16h80a8,8,0,0,1,0,16Z"></path>
@@ -78,5 +77,6 @@
         </div>
     </section>
 </main>
+<script src="js.js"></script>
 </body>
 </html>
