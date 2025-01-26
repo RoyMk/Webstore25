@@ -1,3 +1,7 @@
+if (localStorage.getItem("innerHTML")) {
+    document.querySelector(".main-content").innerHTML = localStorage.getItem("innerHTML");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     class CartStorage {
         static KEY = "CartQtyCounter";
@@ -113,16 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     // Initialization
     const uiManager = new UIManager({
         cart: document.querySelector('.shopping-cart'),
         card: document.querySelector('#cardA'),
         cartPage: document.querySelector('#cardACartPage'),
     });
-
     const cartManager = new CartManager(uiManager);
     uiManager.initializeCartManager(cartManager);
+
+
 });
 
 

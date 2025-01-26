@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="company-logo">
+        <img alt="company-logo" src="../Resources/circuitforce-high-resolution-logo-grayscale-transparent.png">
+    </div>
+    <div class="header-links">
+        <ul>
+            <li><a href="index.html">Products</a></li>
+            <li>Orders</li>
+        </ul>
+    </div>
+
+    <a class="shopping-cart" href="cart.html">
+        <div class="shopping-cart">
+            <div class="cart-badge">
+                <p class="badge-counter"></p>
+            </div>
+            <svg fill="#000000"
+                 height="32" viewBox="0 0 256 256" width="32"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M104,216a16,16,0,1,1-16-16A16,16,0,0,1,104,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,192,200ZM239.71,74.14l-25.64,92.28A24.06,24.06,0,0,1,191,184H92.16A24.06,24.06,0,0,1,69,166.42L33.92,40H16a8,8,0,0,1,0-16H40a8,8,0,0,1,7.71,5.86L57.19,64H232a8,8,0,0,1,7.71,10.14ZM221.47,80H61.64l22.81,82.14A8,8,0,0,0,92.16,168H191a8,8,0,0,0,7.71-5.86Z"></path>
+            </svg>
+        </div>
+    </a>
+    <div class="profile">
+        <a href="profile.html">
+            <svg fill="#000000" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+            </svg>
+        </a>
+    </div>
+</header>
+<main>
+    <div class="product-maker-title">
+        <h1>Product Maker</h1>
+    </div>
+    <section>
+        <form class="itemForm">
+            <label for="item-description">Item description</label>
+            <textarea cols="40"
+                      id="item-description"
+                      name="item-description"
+                      required rows="4"
+                      type="text">NVIDIA - GeForce RTX 5070 12GB GDDR7 Graphics Card - Graphite Grey</textarea>
+
+            <label for="item-price">Item price</label>
+            <input id="item-price" name="item-price" required type="number" value="5021">
+
+            <label for="initial-discount" title="Sets the discount when item is
+added">Initial Discount</label>
+            <input id="initial-discount" name="initial-discount" type="number" value="25">
+
+            <button id="createItemButton" type="submit">Add Item</button>
+
+        </form>
+    </section>
+</main>
+<script src="../js/template.js"></script>
+</body>
+</html>

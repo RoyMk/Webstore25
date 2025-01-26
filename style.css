@@ -124,7 +124,7 @@ body {
     scroll-behavior  : smooth;
     text-rendering   : optimizeSpeed;
     line-height      : 1.5;
-    background-color : whitesmoke;
+    background-color : var(--apple-gray);
     font-family      : "Inter", Helvetica, sans-serif;
 }
 
@@ -138,7 +138,7 @@ body {
 /* Product Card Styles
    ========================================================================== */
 .product-card {
-    background-color : var(--apple-white);
+    background-color : var(--apple-light-gray);
     color            : var(--apple-black);
     border           : 0.5px solid var(--apple-light-gray);
 }
@@ -397,5 +397,50 @@ body {
 }
 
 .qty-input {
+
+}
+
+.itemForm {
+    display        : flex;
+    flex-direction : column;
+    max-width      : 50%;
+    margin         : 0 auto;
+    gap            : 5px;
+
+}
+
+.itemForm [type="submit"] {
+    background-color : var(--apple-blue);
+    color            : white;
+    border-radius    : 8px; /* Changed from 5% to 8px */
+    border           : none;
+    min-width        : 150px;
+    min-height       : 40px; /* Added to ensure consistent height */
+    overflow         : visible;
+    margin           : 20px auto;
+    padding          : 10px 20px; /* Adjusted padding for better text spacing */
+    cursor           : pointer; /* Added to indicate it's clickable */
+    font-size        : 16px; /* Optional: adjust as needed */
+    transition       : background-color 0.3s ease;
+
+}
+
+.itemForm label {
+    color : var(--apple-dark-gray);
+}
+
+.itemForm textarea {
+    resize : vertical;
+}
+
+.product-maker-title {
+    text-align : center;
+    color      : var(--apple-black);
+}
+
+.profile {
+    display     : flex;
+    align-self  : center;
+    margin-left : 2%;
 
 }
